@@ -26,7 +26,7 @@ score_font = pygame.font.SysFont("cosmeticians", 35)
 
 
 def your_score(score):
-    value = score_font.render("Your Score: " + str(score), True, yellow)
+    value = score_font.render("Your Score: " + str(score), True, blue)
     dis.blit(value, [0, 0])
 
 
@@ -59,7 +59,7 @@ def gameLoop():
     while not game_over:
 
         while game_close:
-            dis.fill(blue)
+            dis.fill(white)
             message("You Lost! Press C-Play Again or Q-Quit", red)
             your_score(length_of_snake - 1)
             pygame.display.update()
@@ -93,8 +93,8 @@ def gameLoop():
             game_close = True
         x1 += x1_change
         y1 += y1_change
-        dis.fill(blue)
-        pygame.draw.rect(dis, green, [foods, food, snake_block, snake_block])
+        dis.fill(white)
+        pygame.draw.rect(dis, red, [foods, food, snake_block, snake_block])
         snake_head = [x1, y1]
         snake_list.append(snake_head)
         if len(snake_list) > length_of_snake:
