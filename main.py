@@ -31,19 +31,19 @@ def your_score(score):
     dis.blit(value, [0, 0])
 
 
-def our_snake(block, snake_list):
+def our_snake(snake_block, snake_list):
     for x in snake_list:
-        pygame.draw.rect(dis, green, [x[0], x[1], block, block])
+        pygame.draw.rect(dis, green, [x[0], x[1], snake_block, snake_block])
 
 
 def message(msg, color):
-    msg = font_style.render(msg, True, color)
-    dis.blit(msg, [dis_width / 2-190, dis_height / 3])
+    mesg = font_style.render(msg, True, color)
+    dis.blit(mesg, [dis_width / 2-190, dis_height / 3])
 
 
 def mess(msg, color):
-    msg = font_st.render(msg, True, color)
-    dis.blit(msg, [dis_width / 2-310, dis_height / 2])
+    mesg = font_st.render(msg, True, color)
+    dis.blit(mesg, [dis_width / 2-310, dis_height / 2])
 
 
 def gameLoop():
@@ -67,8 +67,8 @@ def gameLoop():
         while game_close:
             dis.fill(black)
             message("GAME OVER", red)
-            mess("Press C-Play Again or Q-Quit", red)
-            your_score(length_of_snake + 1)
+            mess("Press P-Play Again or Q-Quit", red)
+            your_score(length_of_snake - 1)
             pygame.display.update()
 
             for event in pygame.event.get():
@@ -76,7 +76,7 @@ def gameLoop():
                     if event.key == pygame.K_q:
                         game_over = True
                         game_close = False
-                    if event.key == pygame.K_c:
+                    if event.key == pygame.K_p:
                         gameLoop()
 
         for event in pygame.event.get():
