@@ -10,8 +10,8 @@ red = (213, 50, 80)
 green = (0, 255, 0)
 blue = (50, 153, 213)
 
-dis_width = 600
-dis_height = 400
+dis_width = 1400
+dis_height = 780
 
 dis = pygame.display.set_mode((dis_width, dis_height))
 pygame.display.set_caption('Snake Game by Balaji')
@@ -21,8 +21,9 @@ clock = pygame.time.Clock()
 snake_block = 10
 snake_speed = 15
 
-font_style = pygame.font.SysFont("spendthrift", 25)
-score_font = pygame.font.SysFont("cosmeticians", 35)
+font_style = pygame.font.SysFont("spendthrift", 100)
+font_st = pygame.font.SysFont("spendthrift", 75)
+score_font = pygame.font.SysFont("cosmeticians", 50)
 
 
 def your_score(score):
@@ -37,7 +38,12 @@ def our_snake(block, snake_list):
 
 def message(msg, color):
     msg = font_style.render(msg, True, color)
-    dis.blit(msg, [dis_width / 6, dis_height / 3])
+    dis.blit(msg, [dis_width / 2-190, dis_height / 3])
+
+
+def mess(msg, color):
+    msg = font_st.render(msg, True, color)
+    dis.blit(msg, [dis_width / 2-310, dis_height / 2])
 
 
 def gameLoop():
@@ -59,9 +65,10 @@ def gameLoop():
     while not game_over:
 
         while game_close:
-            dis.fill(white)
-            message("You Lost! Press C-Play Again or Q-Quit", red)
-            your_score(length_of_snake - 1)
+            dis.fill(black)
+            message("GAME OVER", red)
+            mess("Press C-Play Again or Q-Quit", red)
+            your_score(length_of_snake + 1)
             pygame.display.update()
 
             for event in pygame.event.get():
