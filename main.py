@@ -33,7 +33,7 @@ def your_score(score):
 
 def our_snake(block, snake_list):
     for x in snake_list:
-        pygame.draw.rect(dis, black, [x[0], x[1], block, block])
+        pygame.draw.rect(dis, green, [x[0], x[1], block, block])
 
 
 def message(msg, color):
@@ -100,7 +100,7 @@ def gameLoop():
             game_close = True
         x1 += x1_change
         y1 += y1_change
-        dis.fill(white)
+        dis.fill(black)
         pygame.draw.rect(dis, red, [foods, food, snake_block, snake_block])
         snake_head = [x1, y1]
         snake_list.append(snake_head)
